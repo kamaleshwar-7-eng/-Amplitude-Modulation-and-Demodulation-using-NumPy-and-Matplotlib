@@ -1,4 +1,4 @@
-# -Amplitude-Modulation-and-Demodulation-using-NumPy-and-Matplotlib
+# Amplitude-Modulation-and-Demodulation-using-NumPy-and-Matplotlib
 
 __Aim__: 
 
@@ -24,9 +24,54 @@ __Algorithm__:
 5. Modulate Signal: Apply the AM formula to obtain the modulated signal. 
 6. Plot the Signals: Use Matplotlib to plot the message signal, carrier signal, and modulated signal.
 
+ __Program__:
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import hilbert
+
+ac = 19.4
+am = 9.7
+fc = 3660
+fm = 366
+fs = 36600
+
+t = np.arange(0, 2/fm, 1/fs)
+
+e1 = ac * np.sin(2 * np.pi * fm * t)
+
+plt.subplot(3,2,1)
+plt.plot(t, e1)
+plt.title("Message Signal")
+
+e2 = ac * np.sin(2 * np.pi * fc * t)
+
+plt.subplot(3,2,2)
+plt.plot(t, e2)
+plt.title("Carrier Signal")
+
+e3 = (ac + (am * np.sin(2 * np.pi * fm * t))) * np.sin(2 * np.pi * fc * t)
+
+plt.subplot(3,2,3)
+plt.plot(t, e3)
+plt.title("AM Modulated Signal")
+
+demodulated_signal = np.abs(hilbert(e3)) - ac
+
+plt.subplot(3,2,4)
+plt.plot(t, demodulated_signal)
+plt.title("Demodulated Signal")
+
+plt.tight_layout()
+plt.show()
+```
+
  __Output__:
+ 
+<img width="805" height="604" alt="AM  Modulation using python" src="https://github.com/user-attachments/assets/a9bc1205-7e9a-4b89-9ded-6fb7f9595dfc" />
 
 
  __Result__:
+ Thus Amplitude-Modulation-and-Demodulation-using-NumPy-and-Matplotlib is experimentally done and the output is verified
 
 
