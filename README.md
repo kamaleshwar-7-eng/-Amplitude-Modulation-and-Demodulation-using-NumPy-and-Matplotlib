@@ -65,6 +65,9 @@ plt.title("Demodulated Signal")
 plt.tight_layout()
 plt.show()
 ```
+__Tabulation__:
+
+<img width="1600" height="1081" alt="WhatsApp Image 2026-02-20 at 10 25 04 AM" src="https://github.com/user-attachments/assets/b631f6df-e30e-417c-b6c7-877174168f23" />
 
  __Output__:
  
